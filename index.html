@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="th">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#f4f6fb">
+    <title>Jigsaw Puzzle - Car</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <main class="page">
+      <header class="page-header">
+        <p class="eyebrow">JIGSAW PUZZLE</p>
+        <h1>ต่อภาพรถให้ครบกันเถอะ</h1>
+        <p class="intro">เลือกระดับความยาก แล้วลากชิ้นส่วนไปวางบนกระดานให้ครบ</p>
+      </header>
+
+      <section id="level-select" class="level-panel" aria-labelledby="level-title">
+        <div class="level-heading">
+          <div>
+            <p class="eyebrow">CHOOSE YOUR CHALLENGE</p>
+            <h2 id="level-title">เลือกระดับความยาก</h2>
+          </div>
+          <p>เลือกระดับที่ต้องการเพื่อเริ่มเล่น</p>
+        </div>
+        <div class="difficulty-options">
+          <button class="difficulty-card" type="button" data-level="easy" disabled>
+            <span class="difficulty-icon" aria-hidden="true">☀</span>
+            <span class="difficulty-name">ง่าย</span>
+            <span class="difficulty-pieces">20 ชิ้น</span>
+          </button>
+          <button class="difficulty-card" type="button" data-level="medium" disabled>
+            <span class="difficulty-icon" aria-hidden="true">◆</span>
+            <span class="difficulty-name">ปานกลาง</span>
+            <span class="difficulty-pieces">25 ชิ้น</span>
+          </button>
+          <button class="difficulty-card" type="button" data-level="hard" disabled>
+            <span class="difficulty-icon" aria-hidden="true">▲</span>
+            <span class="difficulty-name">ยาก</span>
+            <span class="difficulty-pieces">30 ชิ้น</span>
+          </button>
+          <button class="difficulty-card" type="button" data-level="expert" disabled>
+            <span class="difficulty-icon" aria-hidden="true">✦</span>
+            <span class="difficulty-name">ยากมาก</span>
+            <span class="difficulty-pieces">45 ชิ้น</span>
+          </button>
+        </div>
+      </section>
+
+      <section id="game-panel" class="game-panel" aria-label="เกมต่อภาพจิ๊กซอว์" hidden>
+        <div class="game-toolbar">
+          <div class="progress" aria-live="polite">
+            <span class="progress-label">ความคืบหน้า</span>
+            <strong id="progress-count">0 / 20 ชิ้น</strong>
+          </div>
+          <div class="game-actions">
+            <span id="current-level" class="current-level">ง่าย</span>
+            <button id="change-level-button" class="secondary-button" type="button">เลือกระดับใหม่</button>
+            <button id="music-toggle-button" class="secondary-button music-toggle-button" type="button" aria-pressed="true">
+              <span aria-hidden="true">♫</span>
+              <span id="music-toggle-label">ปิดเพลง</span>
+            </button>
+            <button id="restart-button" class="restart-button" type="button">เริ่มใหม่</button>
+          </div>
+        </div>
+
+        <div class="game-layout">
+          <section class="board-section" aria-label="กระดานต่อภาพ">
+            <h2>กระดาน</h2>
+            <div id="puzzle-board" class="puzzle-board" aria-label="ตำแหน่งวางชิ้นส่วน"></div>
+          </section>
+
+          <section class="tray-section" aria-label="ชิ้นส่วนจิ๊กซอว์">
+            <div class="tray-heading">
+              <h2>ชิ้นส่วน</h2>
+              <span id="tray-count" class="tray-count">20 ชิ้น</span>
+            </div>
+            <div id="piece-tray" class="piece-tray" role="list" aria-label="ชิ้นส่วนที่ยังไม่ได้วาง"></div>
+          </section>
+        </div>
+
+        <p id="game-message" class="game-message" role="status" aria-live="polite"></p>
+        <p id="music-status" class="music-status" role="status" aria-live="polite"></p>
+      </section>
+      <p id="error-message" class="error-message" role="alert" hidden></p>
+    </main>
+    <audio id="background-music" src="background-music.mp3" preload="auto"></audio>
+  </body>
+</html>
